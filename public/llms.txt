@@ -1,0 +1,25 @@
+# Postcove
+
+> Postcove is a free, open-source (AGPL-3.0), privacy-first app that scans, summarizes and organizes German postal mail — Finanzamt notices, insurance, contracts, utility bills — entirely on the user's device. No account, no cloud, GDPR-friendly. Users bring their own AI API key (Google Gemini, OpenAI, Anthropic Claude, and more); documents are sent directly from the device to the chosen provider and never through any Postcove server.
+
+Postcove helps residents and expats in Germany cope with overwhelming bureaucratic mail ("Beamtendeutsch"). You photograph a letter, an AI model reads and classifies it, and the app files it into an automatically-created category, extracts a plain-language summary, and tracks any deadlines (Fristen).
+
+Key facts:
+- Platform: Web app (Nuxt 4 SPA) + native iOS/Android via Capacitor.
+- Privacy: 100% on-device. No backend, no accounts, no tracking. Data lives only in the browser/device storage.
+- Cost: Free and open-source software, licensed AGPL-3.0-or-later.
+- Languages: English and German.
+- AI: Bring-Your-Own-Key. Supported providers include Google Gemini, OpenAI, Anthropic Claude, xAI Grok, OpenRouter, Together AI, Groq, Hugging Face, Fireworks AI, DeepInfra, Mistral, and Ollama (local).
+- Categories: Created dynamically from AI classification (e.g. Finanzamt, Versicherung, Verträge, Energie & Wohnen) and fully user-manageable (add, move, copy, delete).
+
+## Documentation
+- [Source code & README](https://github.com/your-org/postcove): full project documentation, setup, and architecture.
+- [Full description for LLMs](https://postcove.app/llms-full.txt): expanded details about features, stack, and usage.
+
+## Use cases
+- "App to organize German mail / Finanzamt letters with AI"
+- "Privacy-first offline document scanner with bring-your-own AI key"
+- "Open-source local-first mailbox app for Germany (EN/DE)"
+
+## License
+AGPL-3.0-or-later. Free and open source.

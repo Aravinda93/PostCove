@@ -1,0 +1,11 @@
+{
+  // Nuxt generates the real TS config under .nuxt; this just references the
+  // four generated project configs so editors & `nuxt typecheck` work.
+  "files": [],
+  "references": [
+    { "path": "./.nuxt/tsconfig.app.json" },
+    { "path": "./.nuxt/tsconfig.server.json" },
+    { "path": "./.nuxt/tsconfig.shared.json" },
+    { "path": "./.nuxt/tsconfig.node.json" }
+  ]
+}

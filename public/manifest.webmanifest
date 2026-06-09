@@ -1,0 +1,17 @@
+{
+  "name": "Postcove",
+  "short_name": "Postcove",
+  "description": "Privacy-first, on-device filing box for German mail. Scan, summarize and organize letters with your own AI key. 100% offline, encrypted, open source.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1220",
+  "theme_color": "#10b981",
+  "lang": "en",
+  "categories": ["productivity", "utilities"],
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

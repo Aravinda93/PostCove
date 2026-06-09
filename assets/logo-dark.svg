@@ -1,0 +1,43 @@
+<svg width="1024" height="1024" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Postcove app icon — DARK scheme source for @capacitor/assets. -->
+  <defs>
+    <linearGradient id="d-top" x1="11" y1="13" x2="53" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#eafaff"/><stop offset="1" stop-color="#a9e2fb"/>
+    </linearGradient>
+    <linearGradient id="d-left" x1="11" y1="24" x2="32" y2="55" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#cdedfc"/><stop offset="1" stop-color="#7cc4ec"/>
+    </linearGradient>
+    <linearGradient id="d-right" x1="32" y1="36" x2="53" y2="55" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9ed9f6"/><stop offset="1" stop-color="#5aa6d6"/>
+    </linearGradient>
+    <linearGradient id="d-doc" x1="20" y1="2" x2="44" y2="32" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/><stop offset="1" stop-color="#d4f1ff"/>
+    </linearGradient>
+    <linearGradient id="d-tile" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0e1830"/><stop offset="1" stop-color="#070b16"/>
+    </linearGradient>
+    <radialGradient id="d-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop stop-color="#38bdf8" stop-opacity="0.55"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="64" height="64" fill="url(#d-tile)"/>
+  <ellipse cx="32" cy="32" rx="28" ry="28" fill="url(#d-glow)"/>
+  <path d="M32 13 53 24.5 32 36 11 24.5Z" fill="url(#d-top)" fill-opacity="0.95" stroke="#f0fbff" stroke-width="1.1" stroke-linejoin="round"/>
+  <path d="M11 24.5 32 36V55L11 43.5Z" fill="url(#d-left)" fill-opacity="0.92" stroke="#bfe6fb" stroke-width="1" stroke-linejoin="round"/>
+  <path d="M53 24.5 32 36V55l21-11.5Z" fill="url(#d-right)" fill-opacity="0.94" stroke="#bfe6fb" stroke-width="1" stroke-linejoin="round"/>
+  <ellipse cx="32" cy="26.5" rx="10.5" ry="4.6" fill="#2a6f9e" fill-opacity="0.3"/>
+  <g transform="translate(20 1) rotate(-15 12 14)">
+    <path d="M0 3a3 3 0 0 1 3-3h15l6 6v20a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3Z" fill="url(#d-doc)" stroke="#eaf8ff" stroke-width="0.8" stroke-linejoin="round"/>
+    <path d="M18 0v3a3 3 0 0 0 3 3h3Z" fill="#bfe6fb" fill-opacity="0.9"/>
+    <rect x="4" y="6" width="9" height="6.5" rx="1.6" fill="#2499dd"/>
+    <text x="8.5" y="11.2" text-anchor="middle" font-family="system-ui, sans-serif" font-size="5" font-weight="700" fill="#ffffff">AI</text>
+    <rect x="4" y="16" width="16" height="1.7" rx="0.85" fill="#7cc4ec"/>
+    <rect x="4" y="19.6" width="16" height="1.7" rx="0.85" fill="#7cc4ec"/>
+    <rect x="4" y="23.2" width="11" height="1.7" rx="0.85" fill="#7cc4ec"/>
+  </g>
+  <g transform="translate(40 35)">
+    <path d="M2.6 5V3.4a2.4 2.4 0 0 1 4.8 0V5" stroke="#eaf8ff" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+    <rect x="0.6" y="5" width="8.8" height="6.6" rx="1.6" fill="#eaf8ff" fill-opacity="0.92"/>
+    <circle cx="5" cy="8" r="1.1" fill="#5aa6d6"/>
+  </g>
+</svg>

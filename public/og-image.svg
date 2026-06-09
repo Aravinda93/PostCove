@@ -1,0 +1,71 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Postcove — social share / Open Graph banner (1200×630).
+       NOTE: some platforms (X, older crawlers) don't render SVG OG images.
+       For maximum compatibility, export this to og-image.png and point the
+       og:image / twitter:image meta at the PNG. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0b1322"/><stop offset="1" stop-color="#0a0f1c"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.27" cy="0.45" r="0.4">
+      <stop stop-color="#1f6fb0" stop-opacity="0.55"/><stop offset="1" stop-color="#1f6fb0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="top" x1="380" y1="150" x2="560" y2="280" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f4fdff"/><stop offset="1" stop-color="#a4e0fb"/>
+    </linearGradient>
+    <linearGradient id="left" x1="270" y1="250" x2="380" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d6f1fe"/><stop offset="1" stop-color="#7cc6ef"/>
+    </linearGradient>
+    <linearGradient id="right" x1="380" y1="280" x2="500" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#a3dbf6"/><stop offset="1" stop-color="#4e9ed0"/>
+    </linearGradient>
+    <linearGradient id="doc" x1="320" y1="120" x2="470" y2="290" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/><stop offset="1" stop-color="#dcf2ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#halo)"/>
+
+  <!-- Glass box logo (scaled) on the left -->
+  <g transform="translate(150 165) scale(4.1)">
+    <ellipse cx="32" cy="33" rx="30" ry="30" fill="#48c6fb" fill-opacity="0.18"/>
+    <path d="M32 12 54 24 32 36 10 24Z" fill="url(#top)"/>
+    <path d="M10 24 32 36V56L10 44Z" fill="url(#left)"/>
+    <path d="M54 24 32 36V56l22-12Z" fill="url(#right)"/>
+    <path d="M10 24 32 12l22 12" stroke="#ffffff" stroke-opacity="0.85" stroke-width="1.1" stroke-linejoin="round" fill="none"/>
+    <ellipse cx="32" cy="26" rx="11" ry="4.8" fill="#1f5b86" fill-opacity="0.32"/>
+    <g transform="translate(20 1) rotate(-14 12 14)">
+      <path d="M0 3a3 3 0 0 1 3-3h15.2l5.8 5.8V21a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3Z" fill="url(#doc)"/>
+      <path d="M18.2 0v3a3 3 0 0 0 3 3h2.8Z" fill="#c5e9fb"/>
+      <rect x="3.8" y="5.6" width="9" height="6.4" rx="1.6" fill="#2aa0e2"/>
+      <text x="8.3" y="10.8" text-anchor="middle" font-family="system-ui, sans-serif" font-size="4.8" font-weight="700" fill="#ffffff">AI</text>
+      <rect x="3.8" y="15.4" width="16.4" height="1.7" rx="0.85" fill="#86c4e8"/>
+      <rect x="3.8" y="18.9" width="16.4" height="1.7" rx="0.85" fill="#86c4e8"/>
+      <rect x="3.8" y="22.4" width="10.5" height="1.7" rx="0.85" fill="#86c4e8"/>
+    </g>
+    <g transform="translate(40.5 34.5)">
+      <path d="M2.7 5.2V3.5a2.5 2.5 0 0 1 5 0v1.7" stroke="#eaf8ff" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <rect x="0.5" y="5.2" width="8.9" height="6.8" rx="1.7" fill="#eaf8ff"/>
+      <circle cx="4.95" cy="8.3" r="1.05" fill="#5aa6d6"/>
+    </g>
+  </g>
+
+  <!-- Text -->
+  <g font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+    <text x="560" y="250" font-size="76" font-weight="800" fill="#ffffff">Postcove</text>
+    <text x="562" y="312" font-size="30" font-weight="500" fill="#9fc6e8">Your private mailbox, on your device.</text>
+    <text x="562" y="372" font-size="25" fill="#c8d6e6">Scan · summarize · sort German mail with AI —</text>
+    <text x="562" y="408" font-size="25" fill="#c8d6e6">100% offline. No account. Open source.</text>
+
+    <!-- badges -->
+    <g transform="translate(562 452)">
+      <rect width="170" height="44" rx="22" fill="#10b981" fill-opacity="0.16" stroke="#10b981" stroke-width="1.5"/>
+      <text x="85" y="29" text-anchor="middle" font-size="20" font-weight="600" fill="#4ade9f">100% offline</text>
+      <rect x="186" width="150" height="44" rx="22" fill="#3b82f6" fill-opacity="0.16" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="261" y="29" text-anchor="middle" font-size="20" font-weight="600" fill="#7cb3f7">FOSS · AGPL</text>
+      <rect x="352" width="130" height="44" rx="22" fill="#a78bfa" fill-opacity="0.16" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="417" y="29" text-anchor="middle" font-size="20" font-weight="600" fill="#c4b5fd">GDPR-ready</text>
+    </g>
+  </g>
+</svg>

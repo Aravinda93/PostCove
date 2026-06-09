@@ -1,0 +1,43 @@
+/* Postcove — global stylesheet.
+   Tailwind CSS v4 + Nuxt UI v4 design tokens. Single import surface; do not add
+   ad-hoc color values here — manage palette in app/app.config.ts instead. */
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+/* Safelist category accent utilities — dynamically-created categories may use
+   any semantic color, so guarantee these are generated even if not seen in a
+   template at build time. (See app/utils/categoryStyles.ts.) */
+@source inline("{,border-l-,bg-,text-}{primary,secondary,info,success,warning,error}");
+@source inline("bg-{primary,secondary,info,success,warning,error}/{10,15}");
+
+/* App-level CSS variables that aren't part of the semantic color system:
+   safe-area insets for mobile hardware (camera punch / home-swipe bar). */
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Ergonomic safe zones — keep content clear of status bar & home indicator. */
+.safe-top {
+  padding-top: max(var(--safe-top), 0.5rem);
+}
+.safe-bottom {
+  padding-bottom: max(var(--safe-bottom), 0.5rem);
+}
+
+/* Smooth, native-feeling momentum scroll on the main canvas. */
+html,
+body {
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+/* Respect users who prefer reduced motion (accessibility / GDPR-friendly UX). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
