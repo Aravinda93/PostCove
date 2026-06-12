@@ -28,7 +28,7 @@ When you scan a letter, the image is sent **directly from your device to the AI 
 selected**, using your key, solely to transcribe and classify the content. This transfer is
 between you and your provider; it does not pass through any Postcove server, and the
 makers of the app never see it. Your provider processes the request under its own policy
-(possibly on servers outside the EU/EEA) — review it before use.
+(possibly on servers outside the EU/EEA, for example in the USA) — review it before use.
 
 **No tracking.** No analytics, advertising, tracking pixels or third-party tracking cookies.
 A single functional cookie may store your language preference. Nothing is used to track you.
@@ -72,7 +72,7 @@ API-Schlüssel ein. Beim Scannen wird das Bild **direkt von deinem Gerät an den
 KI-Anbieter** gesendet — mit deinem Schlüssel, ausschließlich zur Transkription und
 Klassifizierung. Die Übertragung erfolgt zwischen dir und deinem Anbieter; sie läuft nicht über
 einen Postcove-AI-Server, und die Macher sehen sie nie. Dein Anbieter verarbeitet die Anfrage
-gemäß eigener Richtlinie (ggf. außerhalb der EU/des EWR) — bitte vorher prüfen.
+gemäß eigener Richtlinie (ggf. außerhalb der EU/des EWR, z. B. in den USA) — bitte vorher prüfen.
 
 **Kein Tracking.** Keine Analyse, Werbung, Tracking-Pixel oder Drittanbieter-Tracking-Cookies.
 Ein funktionales Cookie kann die Spracheinstellung speichern. Nichts davon dient dem Tracking.

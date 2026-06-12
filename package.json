@@ -7,7 +7,7 @@
   "description": "Postcove — a 100% free, open-source, privacy-first local document filing box for German mail. Runs fully client-side, no accounts, no cloud.",
   "license": "AGPL-3.0-or-later",
   "scripts": {
-    "clean": "rm -rf .nuxt .output node_modules package-lock.json pnpm-lock.yaml pnpm-lock.yaml .idea .vscode node-compile-cache .pnpm-store",
+    "clean": "rm -rf .nuxt .output node_modules package-lock.json pnpm-lock.yaml pnpm-lock.yaml .idea .vscode node-compile-cache .pnpm-store ios android",
     "dev": "nuxt dev",
     "build": "nuxt build",
     "generate": "nuxt generate",

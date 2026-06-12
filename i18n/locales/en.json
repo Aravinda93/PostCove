@@ -44,6 +44,7 @@
     "newCategory": "New category created: {name}",
     "filed": "Filed: {title}",
     "scanFailed": "Scan failed",
+    "imageOnly": "Please choose an image (photo). Only image files are supported.",
     "noCategoriesTitle": "No categories yet",
     "noCategoriesHint": "Scan a letter and Postcove will sort it into a category automatically — or add one yourself."
   },
@@ -111,7 +112,7 @@
     "privacyHeading": "Privacy & data",
     "privacyNotice": "Postcove stores your documents only on this device, encrypted at rest (AES-256-GCM). They are never sent to Postcove or any server we operate. We have no backend and no account system.",
     "sourceCode": "Source code on GitHub",
-    "privacyAiNotice": "When you scan a letter — or ask the assistant a question — the image (or your question plus the relevant document text) is sent directly from your device to the AI provider you chose, using your own API key. It is not processed or stored by the makers of Postcove. Review your provider's privacy policy before use.",
+    "privacyAiNotice": "When you scan a letter — or ask the assistant a question — the image (or your question plus the relevant document text) is sent directly from your device to the AI provider you chose, using your own API key. It is not processed or stored by the makers of Postcove. Depending on the provider you choose, your data may be processed outside the EU/EEA (for example in the USA). Letters can contain sensitive personal data, so review your provider's privacy policy before use.",
     "legalHeading": "Legal",
     "disclaimer": "Disclaimer: This app is an AI-powered tracking assistant. It does not provide binding legal or financial counsel. The user is solely responsible for verifying official legal deadlines independently.",
     "privacyPolicy": "Privacy Policy",

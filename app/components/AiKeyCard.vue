@@ -24,7 +24,15 @@
     <!-- Model -->
     <div class="space-y-1.5">
       <label class="text-xs font-medium text-muted">{{ $t('settings.ai.model') }}</label>
-      <USelect v-model="chosenModel" :items="modelItems" class="w-full" size="lg" />
+      <USelectMenu
+        v-model="chosenModel"
+        :items="modelItems"
+        :create-item="def.requiresKey ? 'always' : false"
+        :search-input="{ placeholder: $t('settings.ai.modelPlaceholder') }"
+        class="w-full"
+        size="lg"
+        @create="onCreateModel"
+      />
     </div>
 
     <!-- API Key (always masked; no reveal) -->
@@ -96,6 +104,8 @@ const selected = ref<string>(provider.value ?? 'gemini')
 const chosenModel = ref<string>(model.value || providerById(selected.value).defaultModel)
 const draftKey = ref('')
 const testing = ref(false)
+// Models the user typed themselves (the provider may support more than we list).
+const customModels = ref<string[]>([])
 
 // Sync once the stored values hydrate from native storage.
 watch(provider, (v) => v && (selected.value = v))
@@ -103,11 +113,26 @@ watch(model, (v) => v && (chosenModel.value = v))
 
 const def = computed(() => providerById(selected.value))
 const items = computed(() => PROVIDERS.map((p) => ({ label: p.label, value: p.id, icon: p.icon })))
-const modelItems = computed(() => def.value.models.map((m) => ({ label: m, value: m })))
+// Suggested models + any custom one + whatever is currently selected, de-duped.
+const modelItems = computed(() => {
+  const all = new Set<string>(def.value.models)
+  for (const m of customModels.value) all.add(m)
+  if (chosenModel.value) all.add(chosenModel.value)
+  return [...all]
+})
+
+// User typed a model that isn't in our suggestions — remember and select it.
+function onCreateModel(name: string) {
+  const m = name.trim()
+  if (!m) return
+  if (!customModels.value.includes(m)) customModels.value.push(m)
+  chosenModel.value = m
+}
 
 async function onProviderChange(id: string) {
   selected.value = id
   const next = providerById(id)
+  customModels.value = []
   chosenModel.value = next.defaultModel
   await saveProvider(id)
   await setModel(next.defaultModel)

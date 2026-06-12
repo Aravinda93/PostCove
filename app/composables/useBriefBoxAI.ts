@@ -61,11 +61,11 @@ export function useBriefBoxAI() {
     try {
       if (def.type === 'gemini') {
         const res = await fetch(`${def.baseUrl}/models?key=${encodeURIComponent(key)}`)
-        return res.ok ? { ok: true } : { ok: false, error: `HTTP ${res.status}` }
+        return res.ok ? { ok: true } : { ok: false, error: (await describeError(res, def.label)).message }
       }
       // openai-compatible + anthropic both expose GET /models.
       const res = await fetch(`${def.baseUrl}/models`, { headers: authHeaders(def, key) })
-      return res.ok ? { ok: true } : { ok: false, error: `HTTP ${res.status}` }
+      return res.ok ? { ok: true } : { ok: false, error: (await describeError(res, def.label)).message }
     } catch (err) {
       return { ok: false, error: (err as Error).message }
     }
@@ -86,6 +86,11 @@ export function useBriefBoxAI() {
       : ''
     const instruction = ANALYSIS_INSTRUCTION + known
 
+    // Images only (phone-camera scans). Detect the real image type
+    // (image/jpeg, image/png, image/webp, …) so the request is labelled
+    // correctly — a mislabelled image gets a 400 from the provider.
+    const { mime, base64 } = splitDataUrl(imageDataUrl)
+
     if (def.type === 'gemini') {
       const url = `${def.baseUrl}/models/${def.defaultModel}:generateContent?key=${encodeURIComponent(key)}`
       const res = await fetch(url, {
@@ -96,18 +101,13 @@ export function useBriefBoxAI() {
             {
               parts: [
                 { text: instruction },
-                {
-                  inline_data: {
-                    mime_type: 'image/jpeg',
-                    data: imageDataUrl.replace(/^data:image\/\w+;base64,/, '')
-                  }
-                }
+                { inline_data: { mime_type: mime, data: base64 } }
               ]
             }
           ]
         })
       })
-      if (!res.ok) throw new Error(`${def.label}: HTTP ${res.status}`)
+      if (!res.ok) throw await describeError(res, def.label)
       const json = await res.json()
       return parseAnalysis(json.candidates?.[0]?.content?.parts?.[0]?.text ?? '{}')
     }
@@ -124,20 +124,13 @@ export function useBriefBoxAI() {
               role: 'user',
               content: [
                 { type: 'text', text: instruction },
-                {
-                  type: 'image',
-                  source: {
-                    type: 'base64',
-                    media_type: 'image/jpeg',
-                    data: imageDataUrl.replace(/^data:image\/\w+;base64,/, '')
-                  }
-                }
+                { type: 'image', source: { type: 'base64', media_type: mime, data: base64 } }
               ]
             }
           ]
         })
       })
-      if (!res.ok) throw new Error(`${def.label}: HTTP ${res.status}`)
+      if (!res.ok) throw await describeError(res, def.label)
       const json = await res.json()
       return parseAnalysis(json.content?.[0]?.text ?? '{}')
     }
@@ -182,7 +175,7 @@ export function useBriefBoxAI() {
           contents: [{ parts: [{ text: `${system}\n\n${user}` }] }]
         })
       })
-      if (!res.ok) throw new Error(`${def.label}: HTTP ${res.status}`)
+      if (!res.ok) throw await describeError(res, def.label)
       const json = await res.json()
       return json.candidates?.[0]?.content?.parts?.[0]?.text ?? ''
     }
@@ -198,7 +191,7 @@ export function useBriefBoxAI() {
           messages: [{ role: 'user', content: user }]
         })
       })
-      if (!res.ok) throw new Error(`${def.label}: HTTP ${res.status}`)
+      if (!res.ok) throw await describeError(res, def.label)
       const json = await res.json()
       return json.content?.[0]?.text ?? ''
     }
@@ -233,6 +226,34 @@ export function useBriefBoxAI() {
   }
 
   return { validate, analyseLetter, ask }
+}
+
+// Split a `data:<mime>;base64,<payload>` URL into its real mime type and the
+// bare base64 payload. Falls back to JPEG if the URL is malformed.
+function splitDataUrl(dataUrl: string): { mime: string; base64: string } {
+  const m = /^data:([^;,]+)(?:;[^,]*)?,(.*)$/s.exec(dataUrl)
+  if (m && m[2]) return { mime: m[1] || 'image/jpeg', base64: m[2] }
+  return { mime: 'image/jpeg', base64: dataUrl }
+}
+
+// Turn a failed HTTP response into a descriptive Error that includes the
+// provider's own message (Gemini/OpenAI/Anthropic all return `error.message`),
+// not just the status code — so the user sees *why* it failed.
+async function describeError(res: Response, label: string): Promise<Error> {
+  let detail = ''
+  try {
+    const body = await res.clone().json()
+    detail = body?.error?.message || body?.error?.status || body?.message ||
+      (typeof body?.error === 'string' ? body.error : '')
+  } catch {
+    try {
+      detail = (await res.text()).trim().slice(0, 300)
+    } catch {
+      /* body unreadable — fall back to the status line */
+    }
+  }
+  const status = `HTTP ${res.status}${res.statusText ? ` ${res.statusText}` : ''}`
+  return new Error(detail ? `${label}: ${status} — ${detail}` : `${label}: ${status}`)
 }
 
 // Robustly pull a JSON object out of an LLM response (handles ```json fences and

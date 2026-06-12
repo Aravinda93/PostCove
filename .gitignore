@@ -24,12 +24,5 @@ npm-debug.log*
 .vscode/*
 !.vscode/extensions.json
 
-# Capacitor native projects (generated)
-/android
-/ios
-
-# Generated icon/splash output (regenerate with `pnpm cap:assets`)
-/icons
-
 CLAUDE.md
 .claude

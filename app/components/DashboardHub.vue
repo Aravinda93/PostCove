@@ -4,7 +4,7 @@
     <input
       ref="fileInput"
       type="file"
-      accept="image/*,application/pdf"
+      accept="image/*"
       capture="environment"
       class="hidden"
       @change="onFilePicked"
@@ -217,6 +217,17 @@ async function onFilePicked(e: Event) {
   const file = (e.target as HTMLInputElement).files?.[0]
   if (fileInput.value) fileInput.value.value = ''
   if (!file) return
+  // Images only (phone-camera scans). Reject anything else up front so no
+  // unsupported file ever leaves the device.
+  if (!file.type.startsWith('image/')) {
+    toast.add({
+      title: t('dashboard.scanFailed'),
+      description: t('dashboard.imageOnly'),
+      icon: 'i-lucide-image-off',
+      color: 'error'
+    })
+    return
+  }
   await processScan(await readAsDataUrl(file), file.type || 'image/jpeg')
 }
 

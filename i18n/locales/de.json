@@ -44,6 +44,7 @@
     "newCategory": "Neue Kategorie erstellt: {name}",
     "filed": "Abgelegt: {title}",
     "scanFailed": "Scan fehlgeschlagen",
+    "imageOnly": "Bitte ein Bild (Foto) auswählen. Es werden nur Bilddateien unterstützt.",
     "noCategoriesTitle": "Noch keine Kategorien",
     "noCategoriesHint": "Scanne einen Brief und Postcove sortiert ihn automatisch in eine Kategorie — oder füge selbst eine hinzu."
   },
@@ -111,7 +112,7 @@
     "privacyHeading": "Datenschutz & Daten",
     "privacyNotice": "Postcove speichert deine Dokumente ausschließlich auf diesem Gerät, verschlüsselt im Ruhezustand (AES-256-GCM). Sie werden niemals an Postcove oder einen von uns betriebenen Server gesendet. Es gibt kein Backend und kein Konto-System.",
     "sourceCode": "Quellcode auf GitHub",
-    "privacyAiNotice": "Wenn du einen Brief scannst — oder dem Assistenten eine Frage stellst — wird das Bild (bzw. deine Frage samt relevantem Dokumenttext) direkt von deinem Gerät an den von dir gewählten KI-Anbieter gesendet, mit deinem eigenen API-Schlüssel. Es wird nicht von den Machern von Postcove verarbeitet oder gespeichert. Prüfe vor der Nutzung die Datenschutzerklärung deines Anbieters.",
+    "privacyAiNotice": "Wenn du einen Brief scannst — oder dem Assistenten eine Frage stellst — wird das Bild (bzw. deine Frage samt relevantem Dokumenttext) direkt von deinem Gerät an den von dir gewählten KI-Anbieter gesendet, mit deinem eigenen API-Schlüssel. Es wird nicht von den Machern von Postcove verarbeitet oder gespeichert. Je nach gewähltem Anbieter können deine Daten außerhalb der EU/des EWR verarbeitet werden (zum Beispiel in den USA). Briefe können sensible personenbezogene Daten enthalten – prüfe daher vor der Nutzung die Datenschutzerklärung deines Anbieters.",
     "legalHeading": "Rechtliches",
     "disclaimer": "Haftungsausschluss: Diese App ist ein KI-gestützter Tracking-Assistent. Sie bietet keine verbindliche rechtliche oder finanzielle Beratung. Der Nutzer ist allein dafür verantwortlich, offizielle Fristen eigenständig zu überprüfen.",
     "privacyPolicy": "Datenschutzerklärung",

@@ -4,12 +4,12 @@
 // ── Discoverability constants (override via env at build/deploy time) ─────────
 // Set the real deploy URL + repo so canonical/OG/sitemap/JSON-LD/llms.txt all
 // point to the right place: NUXT_PUBLIC_SITE_URL / NUXT_PUBLIC_REPO_URL.
-const SITE_URL = process.env.NUXT_PUBLIC_SITE_URL || 'https://postcove.app'
-const REPO_URL = process.env.NUXT_PUBLIC_REPO_URL || 'https://github.com/your-org/postcove'
+const SITE_URL = process.env.NUXT_PUBLIC_SITE_URL || ''
+const REPO_URL = process.env.NUXT_PUBLIC_REPO_URL || 'https://github.com/Aravinda93/PostCove'
 const SITE_NAME = 'Postcove'
 const SITE_DESC =
   'Postcove is a free, open-source, privacy-first app that scans, summarizes and ' +
-  'organizes your German mail (Finanzamt, insurance, contracts, utilities) entirely on ' +
+  'organizes your Physical posts (Finanzamt, insurance, contracts, utilities) entirely on ' +
   'your device — no account, no cloud, GDPR-friendly. Bring your own AI key (Gemini, ' +
   'OpenAI, Claude and more).'
 

@@ -1,11 +1,9 @@
 # Postcove 📬
 
-A **100% free and open-source, privacy-first** local document filing box for German
-mail (Beamtendeutsch, insurance, utilities, tax). Runs **entirely on your device** —
+A **100% free and open-source, privacy-first** local document filing box for physical posts (Beamtendeutsch, insurance, utilities, tax). Runs **entirely on your device** —
 no accounts, no login, no cloud, no tracking. GDPR-friendly by design.
 
-> Postcove operates 100% offline. All data exists solely inside this device container
-> and is never transmitted to any server.
+> Postcove operates 100% offline. All data exists solely inside this device and is never transmitted to any server.
 
 ---
 
@@ -15,10 +13,8 @@ no accounts, no login, no cloud, no tracking. GDPR-friendly by design.
 - **Fristen Timeline** — chronological deadlines with urgency badges
 - **Document Vault** — searchable, locally-stored catalog with summaries & PDF export
 - **Settings** — language, theme, BYOK AI key, storage meter, hard "wipe vault" control
-- **AI scanning (BYOK)** — bring your own Gemini/OpenAI key; scans go **straight from
-  the device** to your chosen provider, never through any server of ours
-- **Dynamic categories** — four German defaults, plus new categories created
-  automatically when a scanned letter's type doesn't match an existing one
+- **AI scanning (BYOK)** — bring your own Gemini/OpenAI key; scans go **straight from the device** to your chosen provider, never through any server of ours
+- **Dynamic categories** — four defaults, plus new categories created automatically when a scanned letter's type does not match an existing one
 - **Bilingual** — English 🇬🇧 + Deutsch 🇩🇪 (switch in Settings)
 - **Dark / Light / System** theme, defaults to System (switch in Settings)
 - **Mobile-first** with safe-area handling and 44px touch targets
@@ -26,25 +22,23 @@ no accounts, no login, no cloud, no tracking. GDPR-friendly by design.
 
 ## 🧱 Tech stack (all FOSS, latest versions)
 
-| Concern        | Choice                                           |
-| -------------- | ------------------------------------------------ |
-| Framework      | **Nuxt 4** (SPA, `ssr: false`)                   |
-| UI engine      | **Nuxt UI v4** + **Tailwind CSS v4** + Reka UI   |
-| Icons          | Lucide (`@iconify-json/lucide`)                  |
-| i18n           | `@nuxtjs/i18n` (EN / DE)                          |
-| Images         | `@nuxt/image`                                    |
-| SEO/meta       | `@nuxtjs/seo`                                     |
-| Color mode     | bundled with Nuxt UI (system default)            |
-| Secure storage | `@capacitor/preferences` (native keychain ↔ web) |
-| Package manager| **pnpm**                                         |
+| Concern         | Choice                                           |
+|-----------------|--------------------------------------------------|
+| Framework       | **Nuxt 4** (SPA, `ssr: false`)                   |
+| UI engine       | **Nuxt UI v4** + **Tailwind CSS v4** + Reka UI   |
+| Icons           | Lucide (`@iconify-json/lucide`)                  |
+| i18n            | `@nuxtjs/i18n` (EN / DE)                         |
+| Images          | `@nuxt/image`                                    |
+| SEO/meta        | `@nuxtjs/seo`                                    |
+| Color mode      | bundled with Nuxt UI (system default)            |
+| Secure storage  | `@capacitor/preferences` (native keychain ↔ web) |
+| Package manager | **pnpm**                                         |
 
-> `@nuxt/fonts` and `@nuxt/icon` ship **inside** `@nuxt/ui`, so they're not listed as
-> separate modules (registering them twice would warn).
+> `@nuxt/fonts` and `@nuxt/icon` ship **inside** `@nuxt/ui`, so they're not listed as separate modules (registering them twice would warn).
 
 ## 🎨 Changing the brand color (single source of truth)
 
-All colors flow from **one file**: [`app/app.config.ts`](app/app.config.ts).
-Change a single line and every button, badge, border and focus ring updates app-wide:
+All colors flow from **one file**: [`app/app.config.ts`](app/app.config.ts). Change a single line and every button, badge, border and focus ring updates app-wide:
 
 ```ts
 ui: {
@@ -56,14 +50,13 @@ ui: {
 }
 ```
 
-Never hardcode Tailwind color utilities in components — use the semantic aliases
-(`primary`, `secondary`, `info`, `success`, `warning`, `error`). The standalone
+Never hardcode Tailwind color utilities in components — use the semantic aliases (`primary`, `secondary`, `info`, `success`, `warning`, `error`). The standalone
 favicon (`public/favicon.svg`) and `theme-color` use a literal hex — update those
 two if you change `primary`.
 
 ## 🤖 AI pipeline — Bring Your Own Key (BYOK / "FUD AI")
 
-There is **no backend and no bundled API key**. In Settings → *AI Provider* the user
+There is **no backend and no bundled API key**. In Settings → _AI Provider_ the user
 picks from **13 providers** (same set as [Fud AI](https://github.com/apoorvdarshan/fud-ai))
 and pastes their own key:
 
@@ -72,7 +65,7 @@ and pastes their own key:
 > Custom (any OpenAI-compatible endpoint).
 
 The registry lives in [`utils/aiProviders.ts`](app/utils/aiProviders.ts); analysis
-dispatches by provider *type* (OpenAI-compatible / Gemini / Anthropic) in
+dispatches by provider _type_ (OpenAI-compatible / Gemini / Anthropic) in
 [`useBriefBoxAI.ts`](app/composables/useBriefBoxAI.ts). The key is stored on-device
 via `@capacitor/preferences` (iOS Keychain / Android EncryptedSharedPreferences; web
 falls back to localStorage) and is **never rendered back** — only a first/last-few-chars
@@ -82,7 +75,7 @@ the image **directly** from the device to the chosen provider.
 > Get a free Gemini key at **aistudio.google.com/apikey** (the card links to each
 > provider's key page).
 >
-> **CORS note:** some providers block direct browser calls on the *web* build; this
+> **CORS note:** some providers block direct browser calls on the _web_ build; this
 > is expected — the shipping target is Capacitor (native WebView, no CORS). Gemini,
 > Groq, OpenRouter and Ollama generally work on web for quick testing.
 

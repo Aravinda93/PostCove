@@ -38,8 +38,16 @@ export const PROVIDERS: ProviderDef[] = [
     icon: 'i-lucide-gem',
     type: 'gemini',
     baseUrl: 'https://generativelanguage.googleapis.com/v1beta',
-    defaultModel: 'gemini-1.5-flash',
-    models: ['gemini-1.5-flash', 'gemini-2.0-flash', 'gemini-1.5-pro'],
+    defaultModel: 'gemini-3.5-flash',
+    models: [
+      'gemini-3.5-flash',
+      'gemini-3.1-flash-lite',
+      'gemini-3.1-pro-preview',
+      'gemini-3-flash-preview',
+      'gemini-2.5-flash',
+      'gemini-2.5-pro',
+      'gemini-2.0-flash'
+    ],
     keyHelpUrl: 'https://aistudio.google.com/apikey',
     requiresKey: true
   },
@@ -49,8 +57,8 @@ export const PROVIDERS: ProviderDef[] = [
     icon: 'i-lucide-brain-circuit',
     type: 'openai',
     baseUrl: 'https://api.openai.com/v1',
-    defaultModel: 'gpt-4o-mini',
-    models: ['gpt-4o-mini', 'gpt-4o', 'gpt-4.1-mini'],
+    defaultModel: 'gpt-5',
+    models: ['gpt-5', 'gpt-5-mini', 'gpt-5-nano', 'gpt-4o', 'gpt-4o-mini', 'gpt-4.1', 'gpt-4.1-mini'],
     keyHelpUrl: 'https://platform.openai.com/api-keys',
     requiresKey: true
   },
@@ -60,8 +68,15 @@ export const PROVIDERS: ProviderDef[] = [
     icon: 'i-lucide-sparkle',
     type: 'anthropic',
     baseUrl: 'https://api.anthropic.com/v1',
-    defaultModel: 'claude-3-5-sonnet-latest',
-    models: ['claude-3-5-sonnet-latest', 'claude-3-5-haiku-latest', 'claude-3-haiku-20240307'],
+    defaultModel: 'claude-sonnet-4-6',
+    models: [
+      'claude-sonnet-4-6',
+      'claude-opus-4-7',
+      'claude-haiku-4-5',
+      'claude-opus-4-5',
+      'claude-sonnet-4-5-20250929',
+      'claude-opus-4-1-20250805'
+    ],
     keyHelpUrl: 'https://console.anthropic.com/settings/keys',
     requiresKey: true
   },
@@ -71,8 +86,8 @@ export const PROVIDERS: ProviderDef[] = [
     icon: 'i-lucide-zap',
     type: 'openai',
     baseUrl: 'https://api.x.ai/v1',
-    defaultModel: 'grok-2-vision-1212',
-    models: ['grok-2-vision-1212', 'grok-2-latest'],
+    defaultModel: 'grok-4',
+    models: ['grok-4', 'grok-2-vision-latest'],
     keyHelpUrl: 'https://console.x.ai',
     requiresKey: true
   },
@@ -82,8 +97,14 @@ export const PROVIDERS: ProviderDef[] = [
     icon: 'i-lucide-route',
     type: 'openai',
     baseUrl: 'https://openrouter.ai/api/v1',
-    defaultModel: 'openai/gpt-4o-mini',
-    models: ['openai/gpt-4o-mini', 'anthropic/claude-3.5-sonnet', 'google/gemini-flash-1.5'],
+    defaultModel: 'google/gemini-2.5-flash',
+    models: [
+      'google/gemini-2.5-flash',
+      'openai/gpt-4o',
+      'anthropic/claude-sonnet-4',
+      'meta-llama/llama-4-maverick',
+      'openrouter/auto'
+    ],
     keyHelpUrl: 'https://openrouter.ai/keys',
     requiresKey: true
   },
@@ -93,8 +114,12 @@ export const PROVIDERS: ProviderDef[] = [
     icon: 'i-lucide-users',
     type: 'openai',
     baseUrl: 'https://api.together.xyz/v1',
-    defaultModel: 'meta-llama/Llama-3.2-11B-Vision-Instruct-Turbo',
-    models: ['meta-llama/Llama-3.2-11B-Vision-Instruct-Turbo', 'meta-llama/Llama-3.2-90B-Vision-Instruct-Turbo'],
+    defaultModel: 'meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8',
+    models: [
+      'meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8',
+      'meta-llama/Llama-3.2-90B-Vision-Instruct-Turbo',
+      'Qwen/Qwen2.5-VL-72B-Instruct'
+    ],
     keyHelpUrl: 'https://api.together.ai/settings/api-keys',
     requiresKey: true
   },
@@ -105,7 +130,7 @@ export const PROVIDERS: ProviderDef[] = [
     type: 'openai',
     baseUrl: 'https://api.groq.com/openai/v1',
     defaultModel: 'meta-llama/llama-4-scout-17b-16e-instruct',
-    models: ['meta-llama/llama-4-scout-17b-16e-instruct', 'llama-3.2-11b-vision-preview'],
+    models: ['meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'],
     keyHelpUrl: 'https://console.groq.com/keys',
     requiresKey: true
   },
@@ -115,8 +140,12 @@ export const PROVIDERS: ProviderDef[] = [
     icon: 'i-lucide-smile',
     type: 'openai',
     baseUrl: 'https://router.huggingface.co/v1',
-    defaultModel: 'meta-llama/Llama-3.2-11B-Vision-Instruct',
-    models: ['meta-llama/Llama-3.2-11B-Vision-Instruct'],
+    defaultModel: 'google/gemma-3-27b-it',
+    models: [
+      'google/gemma-3-27b-it',
+      'Qwen/Qwen2.5-VL-72B-Instruct',
+      'meta-llama/Llama-3.2-90B-Vision-Instruct'
+    ],
     keyHelpUrl: 'https://huggingface.co/settings/tokens',
     requiresKey: true
   },
@@ -126,8 +155,12 @@ export const PROVIDERS: ProviderDef[] = [
     icon: 'i-lucide-flame',
     type: 'openai',
     baseUrl: 'https://api.fireworks.ai/inference/v1',
-    defaultModel: 'accounts/fireworks/models/llama-v3p2-11b-vision-instruct',
-    models: ['accounts/fireworks/models/llama-v3p2-11b-vision-instruct'],
+    defaultModel: 'accounts/fireworks/models/qwen2-vl-72b-instruct',
+    models: [
+      'accounts/fireworks/models/qwen2-vl-72b-instruct',
+      'accounts/fireworks/models/llama-v3p2-90b-vision-instruct',
+      'accounts/fireworks/models/phi-3-vision-128k-instruct'
+    ],
     keyHelpUrl: 'https://fireworks.ai/account/api-keys',
     requiresKey: true
   },
@@ -137,8 +170,12 @@ export const PROVIDERS: ProviderDef[] = [
     icon: 'i-lucide-server',
     type: 'openai',
     baseUrl: 'https://api.deepinfra.com/v1/openai',
-    defaultModel: 'meta-llama/Llama-3.2-11B-Vision-Instruct',
-    models: ['meta-llama/Llama-3.2-11B-Vision-Instruct', 'meta-llama/Llama-3.2-90B-Vision-Instruct'],
+    defaultModel: 'google/gemma-3-27b-it',
+    models: [
+      'google/gemma-3-27b-it',
+      'meta-llama/Llama-3.2-90B-Vision-Instruct',
+      'Qwen/Qwen2.5-VL-72B-Instruct'
+    ],
     keyHelpUrl: 'https://deepinfra.com/dash/api_keys',
     requiresKey: true
   },
@@ -148,8 +185,8 @@ export const PROVIDERS: ProviderDef[] = [
     icon: 'i-lucide-wind',
     type: 'openai',
     baseUrl: 'https://api.mistral.ai/v1',
-    defaultModel: 'pixtral-12b-2409',
-    models: ['pixtral-12b-2409', 'pixtral-large-latest'],
+    defaultModel: 'pixtral-large-latest',
+    models: ['pixtral-large-latest', 'pixtral-12b-latest'],
     keyHelpUrl: 'https://console.mistral.ai/api-keys',
     requiresKey: true
   },
@@ -159,8 +196,8 @@ export const PROVIDERS: ProviderDef[] = [
     icon: 'i-lucide-laptop',
     type: 'openai',
     baseUrl: 'http://localhost:11434/v1',
-    defaultModel: 'llava',
-    models: ['llava', 'llama3.2-vision', 'bakllava'],
+    defaultModel: 'llama3.2-vision',
+    models: ['llama3.2-vision', 'llava', 'moondream'],
     keyHelpUrl: 'https://ollama.com',
     requiresKey: false
   }
